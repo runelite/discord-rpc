@@ -1,6 +1,13 @@
 cmake_minimum_required (VERSION 3.2.0)
 project (DiscordRPC)
 
+set(USE_STATIC_CRT true)
+set(BUILD_SHARED_LIBS true)
+if(APPLE)
+  set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
+  set(CMAKE_OSX_DEPLOYMENT_TARGET "10.9")
+endif(APPLE)
+
 include(GNUInstallDirs)
 
 option(BUILD_EXAMPLES "Build example apps" ON)
